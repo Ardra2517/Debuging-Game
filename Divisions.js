@@ -15,4 +15,10 @@ class Divisions {
         fill("white");
         rect(pos.x, pos.y, this.w, this.h);
     }
+
+    score(){
+        if(this.Visiblity<0 && this.Visiblity>-1005){
+          score++
+        }
+      }
 };

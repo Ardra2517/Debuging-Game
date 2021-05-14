@@ -3,8 +3,9 @@ var Engine = Matter.Engine,
   Events = Matter.Events,
   Bodies = Matter.Bodies;
  
-var particles = [];
-var plinkos = [];
+  var particle=0;
+ var particles = [];
+ var plinkos = [];
 
 var divisionHeight=300;
 var score =0;
@@ -13,9 +14,11 @@ function setup() {
   engine = Engine.create();
   world = engine.world;
   ground = new Ground(width/2,height,width,20);
-  divisions=new Divisions();
+  divisions =new Divisions();
+  var j;
+  var k;
 
-   for (var k = 0; k <=width; k = k + 80) {
+   for (var k = 0; k < width ; k = k + 80) {
      divisions.push(new Divisions(k, height-divisionHeight/2, 10, divisionHeight));
    }
 
@@ -53,8 +56,11 @@ function setup() {
 
 function draw() {
   background("black");
-  textSize(20)
-  text("Score : "+score,20,30);
+
+  textSize(20);
+     fill("white");
+     text("Score: "+score, 20,30)
+     
   Engine.update(engine);
  
   
@@ -76,6 +82,4 @@ function draw() {
      
      divisions[k].display();
    }
-   ground.display();
-   divisions.display();
 }
